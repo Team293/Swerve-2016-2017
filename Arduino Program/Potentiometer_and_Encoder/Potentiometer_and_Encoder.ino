@@ -20,7 +20,8 @@ Servo speedMotor;
  int n = LOW;
 long lastChange = 0;
 long timeNow = 0;
- int lastPos = 0; 
+ int lastPos = 0;
+ float rpm; 
 
 void setup() {
    angleMotor.attach(10);
@@ -61,19 +62,25 @@ void loop() {
   //Get Speed
   timeNow = millis();
   long timedif = timeNow-lastChange;
-    //Serial.println(encoder0Pos);
+    Serial.print("Current encoder reading!: ");
+    Serial.print(encoder0Pos);
+    Serial.println();
   if (timedif > 100){
+      Serial.print("millisecond difference: ");
       Serial.print(timedif);
-      Serial.print("      ");
+      Serial.println(); 
       speedM = encoder0Pos-lastPos;
-      Serial.println(speedM);
- 
+      Serial.print("Change in position: ");
+      Serial.print(speedM);
+      Serial.println(); 
       speedError = goalSpeed - speedM;
       speedPower -= (speedError/5);
       speedMotor.write(speedPower);
-      Serial.print("        ");
-      Serial.println(speedPower);
+      Serial.print("speedPower: ");
+      Serial.print(speedPower);
       lastChange = timeNow;
       lastPos = encoder0Pos;
    }
+   rpm = (speedM/256)/(timedif/60000);
+   Serial.println(rpm);
 }
