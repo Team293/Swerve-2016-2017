@@ -1,5 +1,5 @@
+#include <Encoder.h>
 #include <Servo.h>
-
 
 int potPin = 2;    // select the input pin for the potentiometer   // select the pin for the LED
 int value;
@@ -21,6 +21,7 @@ Servo speedMotor;
 long lastChange = 0;
 long timeNow = 0;
  int lastPos = 0; 
+ Encoder WheelReader(3, 2);
 
 void setup() {
    angleMotor.attach(10);
@@ -29,7 +30,7 @@ void setup() {
    Serial.print("test!");
    pinMode (encoder0PinA,INPUT);
    pinMode (encoder0PinB,INPUT);
-   attachInterrupt(digitalPinToInterrupt(3), changey, CHANGE);
+   attachInterrupt(0, changey, CHANGE);
 }
 
 void changey(){
