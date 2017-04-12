@@ -1,16 +1,20 @@
 #include <Servo.h>
 
 
-int potPin = 2;    // select the input pin for the potentiometer   // select the pin for the LED
+int potPin = 2;    // select the input pin for the potentiometer
 int value;
 float angle;
+
 Servo angleMotor;
+Servo speedMotor;
+
 int goalAngle = 122;
 int goalSpeed = 10;
+
 int angleError;
 int speedError;
 int command;
-Servo speedMotor;
+
  int speedM;
  int speedPower = 0;
  int encoder0PinA = 3;
@@ -57,7 +61,7 @@ void loop() {
   if (abs(angleError) > 180){
     angleError = angleError - 360;
   }
-  //angleMotor.write(94-angleError);
+  angleMotor.write(94-angleError); //this is 0-180 and 94 is approximately a neutral frc style 0
 
   //Get Speed
   timeNow = millis();
