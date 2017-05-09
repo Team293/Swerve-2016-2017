@@ -1,0 +1,28 @@
+char temp;
+string 
+int iterator=0;
+
+int moduleNumber=1;
+
+void setup() {
+  servo.attach(10);
+  Serial.begin (9600);
+}
+
+void loop() {
+
+if(Serial.available()>0){
+      temp = Serial.read();
+    } 
+    if (temp=='!'){
+      iterator=1;
+    }
+    else if (temp==','){
+      iterator=iterator+1;
+    }
+    else{
+     if (iterator+2==moduleNumber){
+      
+     }
+    }
+    
