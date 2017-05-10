@@ -1,12 +1,13 @@
+//This parses for Arduino....strings come in the !velocity1,angle1,velocity2,angle2 form from the Pi
+
 char temp;
 int iterator=0;
 
 int getVelocity=0;
 
-int moduleNumber=1;
+int moduleNumber=1;  //from 1 to 4
 
 void setup() {
-  servo.attach(10);
   Serial.begin (9600);
 }
 
