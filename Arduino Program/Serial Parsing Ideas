@@ -1,6 +1,7 @@
 char temp;
-string 
 int iterator=0;
+
+int getVelocity=0;
 
 int moduleNumber=1;
 
@@ -12,17 +13,21 @@ void setup() {
 void loop() {
 
 if(Serial.available()>0){
-      temp = Serial.read();
+      temp = Serial.read(); //If there's a value available, then read it in as a character converted into ASCII readable form from the byte.
     } 
-    if (temp=='!'){
-      iterator=1;
-    }
-    else if (temp==','){
-      iterator=iterator+1;
-    }
-    else{
-     if (iterator+2==moduleNumber){
-      
-     }
-    }
+  if (temp=='!'){
+    iterator=1;   //then we're at the start of it
+  }
+  else if (temp==','){  //at each comma we hit, we are now at the next value
+    iterator=iterator+1;
+  }
+  else{
+    if (iterator==moduleNumber*2-1){ //if its a value we need then it will save those characters into the getVelocity, Angle etc.
+    getVelocity+=temp;
+   }
+   if (iterator==moduleNumber*2){
+   getAngle+=temp;
+  }
+
+    
     
