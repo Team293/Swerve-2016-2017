@@ -3,7 +3,11 @@
 char temp;
 int iterator=0;
 
-int getVelocity=0;
+string getVelocity="0";
+string getAngle="0;
+
+int setVelocity=0;
+int setAngle=0;
 
 int moduleNumber=1;  //from 1 to 4
 
@@ -21,6 +25,12 @@ if(Serial.available()>0){
   }
   else if (temp==','){  //at each comma we hit, we are now at the next value
     iterator=iterator+1;
+    if (iterator==moduleNumber*2){
+      setVelocity=getVelocity.toString();
+    }
+    if (iterator==moduleNumber*2+1){
+      getVelocity=getAngle.toString();
+    }
   }
   else{
     if (iterator==moduleNumber*2-1){ //if its a value we need then it will save those characters into the getVelocity, Angle etc.
