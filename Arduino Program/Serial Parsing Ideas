@@ -1,6 +1,6 @@
 //This parses for Arduino....strings come in the !velocity1,angle1,velocity2,angle2 form from the Pi
 
-char temp;
+char temp ='a';
 int iterator = 0;
 
 String getVelocity = "0";
