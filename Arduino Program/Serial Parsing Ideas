@@ -3,8 +3,8 @@
 char temp;
 int iterator=0;
 
-string getVelocity="0";
-string getAngle="0;
+String getVelocity="0";
+String getAngle="0";
 
 int setVelocity=0;
 int setAngle=0;
